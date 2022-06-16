@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: servicio-gateway-zuul
+
+server:
+  port: 8090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+zuul:
+  routes:
+    producto:
+      serviceId: servicio-productos
+      path: /api/productos/**
+    item:
+      serviceId: servicio-item
+      path: /api/items/**
